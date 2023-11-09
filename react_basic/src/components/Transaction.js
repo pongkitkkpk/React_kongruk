@@ -1,23 +1,30 @@
-
 import Item from './Item';
 import './Transection.css'
-const Transection=()=>{
-    const data =[
-        {title:"ค่ารักษาพยาบาล",amount:2000},
-        {title:"ค่าหมาล่า",amount:4000},
-        {title:"ค่าเช้าห้อง",amount:200},
-    ]
-    return(
+import DataContext from '../data/DataContext';
+import { useContext } from 'react';
+
+
+const Transection = (props) => {
+    const {items } = props
+    const {income,expense}=useContext(DataContext)
+    return (
+        <div>
         <ul className="item-list">
-            {/* <Item title={data[0].title} amount={data[0].amount}/> */}
-            {data.map((element)=>{
-                // return <Item title={element.title} amount={element.amount}/>
-                return <Item {...element} />//ถ้ามีชื่อตัวแปรเหมือนกันนะ Spread Operator
+            {items.map((element) => {
+                // The spread operator is used here to pass all properties of 'element' to the 'Item' component.
+                return <Item {...element} key={element.id}/>
             })}
         </ul>
+        {/* {name} */}
+            <p>รายรับ : {income}</p>
+            <p>รายจ่าย : {expense}</p>
+        </div>
     );
 }
+
 export default Transection;
+
+
 
 
 // แบบเก่า
