@@ -1,12 +1,11 @@
 import Item from './Item';
 import './Transection.css'
-import DataContext from '../data/DataContext';
-import { useContext } from 'react';
+
 
 
 const Transection = (props) => {
     const {items } = props
-    const {income,expense}=useContext(DataContext)
+
     return (
         <div>
         <ul className="item-list">
@@ -16,8 +15,6 @@ const Transection = (props) => {
             })}
         </ul>
         {/* {name} */}
-            <p>รายรับ : {income}</p>
-            <p>รายจ่าย : {expense}</p>
         </div>
     );
 }
